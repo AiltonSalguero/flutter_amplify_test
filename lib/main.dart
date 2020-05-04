@@ -32,6 +32,25 @@ class MyApp extends StatelessWidget {
     }).catchError((error) {
       print(error);
     });
+
+
+final username = _usernameController.text;
+final password = _passwordController.text;
+
+Map<String, String> userAttributes = Map<String, String>();
+userAttributes['email'] = 'jack@gmail.com';
+
+FlutterAwsAmplifyCognito.signUp(username, password, userAttributes)
+    .then((SignUpResult result) {
+      if (!result.confirmationState) {
+        final UserCodeDeliveryDetails details = result.userCodeDeliveryDetails;
+        print(details.destination);
+      } else {
+        print('Sign Up Done!');
+      }
+    }).catchError((error) {
+        print(error);
+    });
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
