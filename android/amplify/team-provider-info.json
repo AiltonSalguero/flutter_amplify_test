@@ -1,0 +1,20 @@
+{
+    "tkv": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-android-tkv-174121-authRole",
+            "UnauthRoleArn": "arn:aws:iam::203101557291:role/amplify-android-tkv-174121-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::203101557291:role/amplify-android-tkv-174121-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-android-tkv-174121-deployment",
+            "UnauthRoleName": "amplify-android-tkv-174121-unauthRole",
+            "StackName": "amplify-android-tkv-174121",
+            "StackId": "arn:aws:cloudformation:us-west-2:203101557291:stack/amplify-android-tkv-174121/64fb2bb0-8e58-11ea-a1fb-02c46d078154",
+            "AmplifyAppId": "d1lbexzngcdn0f"
+        },
+        "categories": {
+            "auth": {
+                "android2b282b2c": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"android2b282b2c": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
