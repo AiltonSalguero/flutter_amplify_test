@@ -1,10 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_aws_amplify_cognito/flutter_aws_amplify_cognito.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    FlutterAwsAmplifyCognito.initialize().then((UserStatus status) {
+      switch (status) {
+        case UserStatus.GUEST:
+          break;
+        case UserStatus.SIGNED_IN:
+          // TODO: Handle this case.
+          break;
+        case UserStatus.SIGNED_OUT:
+          print("ESTADO DE SIGNT OU");
+          break;
+        case UserStatus.SIGNED_OUT_FEDERATED_TOKENS_INVALID:
+          // TODO: Handle this case.
+          break;
+        case UserStatus.SIGNED_OUT_USER_POOLS_TOKENS_INVALID:
+          // TODO: Handle this case.
+          break;
+        case UserStatus.UNKNOWN:
+          // TODO: Handle this case.
+          break;
+        case UserStatus.ERROR:
+          // TODO: Handle this case.
+          break;
+      }
+    }).catchError((error) {
+      print(error);
+    });
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -29,23 +56,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-  
       _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
       appBar: AppBar(
-        
         title: Text(widget.title),
       ),
       body: Center(
-      
         child: Column(
-       
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
@@ -62,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), 
+      ),
     );
   }
 }
