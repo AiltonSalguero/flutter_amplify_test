@@ -33,23 +33,16 @@ class MyApp extends StatelessWidget {
       print(error);
     });
 
-
-final username = _usernameController.text;
-final password = _passwordController.text;
-
-Map<String, String> userAttributes = Map<String, String>();
-userAttributes['email'] = 'jack@gmail.com';
-
-FlutterAwsAmplifyCognito.signUp(username, password, userAttributes)
-    .then((SignUpResult result) {
+    FlutterAwsAmplifyCognito.confirmSignUp("jesus.baza.loz@gmail.com", "194557")
+        .then((SignUpResult result) {
       if (!result.confirmationState) {
         final UserCodeDeliveryDetails details = result.userCodeDeliveryDetails;
         print(details.destination);
       } else {
-        print('Sign Up Done!');
+        print("Sign up Done");
       }
     }).catchError((error) {
-        print(error);
+      print(error);
     });
     return MaterialApp(
       title: 'Flutter Demo',
@@ -58,6 +51,26 @@ FlutterAwsAmplifyCognito.signUp(username, password, userAttributes)
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
+  }
+
+  signup() {
+    final username = "jesus.baza.loz@gmail.com";
+    final password = "Number123";
+
+    Map<String, String> userAttributes = Map<String, String>();
+    userAttributes['email'] = 'jesus.baza.loz@gmail.com';
+
+    FlutterAwsAmplifyCognito.signUp(username, password, userAttributes)
+        .then((SignUpResult result) {
+      if (!result.confirmationState) {
+        final UserCodeDeliveryDetails details = result.userCodeDeliveryDetails;
+        print(details.destination);
+      } else {
+        print('Sign Up Done!');
+      }
+    }).catchError((error) {
+      print(error);
+    });
   }
 }
 
